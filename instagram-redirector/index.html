@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+</head>
+<body>
+
+<script>
+  function getUrlParameter(name) {
+      name = name.replace(/[\[\]]/g, '\\$&');
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get(name);
+  }
+
+  const redirectUrl = getUrlParameter('redirect');
+
+  if (redirectUrl) {
+      document.title = `Redirecting to ${redirectUrl}`;
+  }
+
+  if (navigator.userAgent.includes("Instagram")) {
+      if (redirectUrl) {
+          window.location.href = redirectUrl;
+      }
+  }
+</script>
+
+</body>
+</html>
